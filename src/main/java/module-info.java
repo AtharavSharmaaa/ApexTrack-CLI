@@ -1,8 +1,9 @@
-﻿module apextrack.cli {
-    requires java.sql;
+module apextrack.cli {
+    requires transitive java.sql;
 
     exports com.apextrack;
     exports com.apextrack.config;
     exports com.apextrack.model;
     exports com.apextrack.exception;
+    exports com.apextrack.dao;
 }
