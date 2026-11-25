@@ -6,4 +6,5 @@ module apextrack.cli {
     exports com.apextrack.model;
     exports com.apextrack.exception;
     exports com.apextrack.dao;
+    exports com.apextrack.service;
 }
