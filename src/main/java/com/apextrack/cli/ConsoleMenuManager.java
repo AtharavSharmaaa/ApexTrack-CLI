@@ -30,7 +30,7 @@ public class ConsoleMenuManager {
             System.out.println("1. Register Constructor Team");
             System.out.println("2. Register Driver");
             System.out.println("3. Record Race Result");
-            System.out.println("4. Data, Analytics & CSV Menu");
+            System.out.println("4. Data & Anylitics");
             System.out.println("5. Race Simulation & Pit Lane Menu");
             System.out.println("0. Exit");
             System.out.print("Select option: ");
