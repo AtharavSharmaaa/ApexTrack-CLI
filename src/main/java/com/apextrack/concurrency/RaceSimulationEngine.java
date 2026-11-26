@@ -1,3 +1,4 @@
+﻿
 package com.apextrack.concurrency;
 
 import com.apextrack.exception.ChampionshipException;
@@ -32,18 +33,25 @@ public class RaceSimulationEngine {
             consumerThread.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new ChampionshipException("Race simulation was interrupted.", e);
+            throw new ChampionshipException("Race simulation was interrupted.");
         }
 
         Map<String, Double> totals = consumer.getCumulativeTimes();
-        List> ranked = new ArrayList<>(totals.entrySet());
+
+        List<Map.Entry<String, Double>> ranked = new ArrayList<>(totals.entrySet());
+
         ranked.sort(Comparator.comparingDouble(Map.Entry::getValue));
 
         List<String> classification = new ArrayList<>();
         int pos = 1;
+
         for (Map.Entry<String, Double> entry : ranked) {
-            classification.add(String.format("P%d - %s (Total Time: %.3fs)", pos++, entry.getKey(), entry.getValue()));
+            classification.add(String.format(
+                "P%d - %s (Total Time: %.3fs)",
+                pos++, entry.getKey(), entry.getValue()
+            ));
         }
+
         return classification;
     }
 }
